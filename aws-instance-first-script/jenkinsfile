@@ -23,7 +23,7 @@ pipeline {
                  script{
                         dir("terraform")
                         {
-                            git "https://github.com/NIKHILSharoff/Terraform.git"
+                            git "place your git repo link here"
                         }
                     }
                 }
