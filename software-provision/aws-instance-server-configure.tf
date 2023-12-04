@@ -10,7 +10,7 @@ resource "aws_instance" "web-server" {
   }
   provisioner "remote-exec" {
       inline = [
-        "sudo yum install -y httpd;sudo cp /tmp/index.html /var/www/html/",
+        "sudo apt install -y httpd;sudo cp /tmp/index.html /var/www/html/",
         "sudo service httpd restart",
         "sudo service httpd status"
       ]
