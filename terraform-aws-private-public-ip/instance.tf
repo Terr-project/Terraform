@@ -1,7 +1,15 @@
-provider "aws" {
-  region     = var.region
-  version    = "~> 2.0"
+terraform {
+  required_providers {
+    aws = {
+      version = "~> 5.27.0"
+    }
+  }
 }
+
+provider "aws" {
+  region = "${var.region}"
+}
+
 
 resource "aws_instance" "IP_example" {
   ami           = lookup(var.ami_id, var.region)
@@ -30,7 +38,6 @@ resource "aws_instance" "IP_example" {
 
 resource "aws_eip" "eip" {
   instance = aws_instance.IP_example.id
-  vpc      = true
 }
 
 output "public_ip" {

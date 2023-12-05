@@ -3,8 +3,6 @@ resource "aws_vpc" "vpc_demo" {
   instance_tenancy     = var.instance_tenancy
   enable_dns_hostnames = var.enable_dns_hostnames
   enable_dns_support   = var.enable_dns_support
-  enable_classiclink   = var.enable_classiclink
-
   tags = {
     Name = var.tags
   }
@@ -19,7 +17,7 @@ resource "aws_internet_gateway" "gw" {
 }
 
 resource "aws_subnet" "public_1" {
-  availability_zone       = "us-east-1a"
+  availability_zone       = "ap-southeast-1a"
   vpc_id                  = aws_vpc.vpc_demo.id
   map_public_ip_on_launch = true
   cidr_block              = "10.0.1.0/24"
