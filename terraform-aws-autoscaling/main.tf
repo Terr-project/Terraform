@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_launch_configuration" "launch_config" {
   name          = "web_config"
   image_id      = lookup(var.ami_id, var.region)
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
   key_name      = var.key_name
   security_groups = [ var.security_grpup_id]
 }
